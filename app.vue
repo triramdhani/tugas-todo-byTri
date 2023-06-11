@@ -116,16 +116,16 @@ export default {
       this.tasks = newTasks
 
     },
-    // async taskToEmpty(){
-    //   this.isEmpty = true
-    // }
+    async taskToEmpty(){
+      this.isEmpty = true
+    }
   },
-  // watch : {
-  //   tasks(newValue , oldValue){
-  //     if(newValue.length === 0 ){
-  //       this.taskToEmpty()
-  //     }
-  //   }
-  // }
+  watch : {
+    tasks(newValue , oldValue){
+      if(newValue.length === 0 ){
+        this.taskToEmpty()
+      }
+    }
+  }
 };
 </script>
