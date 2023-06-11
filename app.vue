@@ -104,7 +104,9 @@ export default {
       };
       this.tasks.push(data);
 
-      // clear the form input state
+
+      // hide input form && clear form
+      this.isCreating = !this.isCreating
       this.titleValue = ``;
       this.descriptionValue = ``;
     },
