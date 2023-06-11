@@ -25,6 +25,9 @@
           <div class="description-task small text-muted">
             {{ task.description }}
           </div>
+          <div>
+            <button @click="(e) => deleteTask(task)">Delete</button>
+          </div>
         </div>
       </div>
     </div>
@@ -74,11 +77,11 @@ export default {
     return {
       // Daftar task
       tasks: [
-        // {
-        //   title: "Task 1",
-        //   description: "ini deskripsi",
-        //   isDone: false,
-        // },
+        {
+          title: "Task 1",
+          description: "ini deskripsi",
+          isDone: false,
+        },
       ],
       isCreating: false,
       // state for handle form input
@@ -105,6 +108,24 @@ export default {
       this.titleValue = ``;
       this.descriptionValue = ``;
     },
+    deleteTask(dltTask){
+      // better to use id task
+      let currentTask = this.tasks ;
+      let newTasks = currentTask.filter(task => task.title !== dltTask.title)
+
+      this.tasks = newTasks
+
+    },
+    // async taskToEmpty(){
+    //   this.isEmpty = true
+    // }
   },
+  // watch : {
+  //   tasks(newValue , oldValue){
+  //     if(newValue.length === 0 ){
+  //       this.taskToEmpty()
+  //     }
+  //   }
+  // }
 };
 </script>
