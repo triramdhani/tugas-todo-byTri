@@ -17,9 +17,10 @@
           name="status"
           class="me-2 mt-2"
           :checked="task.isDone"
+          v-model="tasks[index].isDone"
         />
         <div class="d-flex flex-column">
-          <div class="title-task mb-1">
+          <div class="title-task mb-1" :class="[task.isDone ? 'line-through' : 'null']">
             {{ task.title }}
           </div>
           <div class="description-task small text-muted">
@@ -45,13 +46,12 @@
           <div class="card-body d-flex flex-column p-0">
             <input
               v-model="titleValue"
-              class="form-control border-0 mb-2"
               placeholder="Title"
               type="text"
             />
             <textarea
               v-model="descriptionValue"
-              class="form-control border-0 small"
+              class="form-control  border-0 small"
               placeholder="Description"
               rows="3"
             ></textarea>
